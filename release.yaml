@@ -1,0 +1,17 @@
+components:
+  junit:
+    artifact:
+      type: maven
+      name: org.junit.jupiter:junit-jupiter-api
+      version: 5.9.1
+      releaseTimestamp: 2022-09-20T00:00:00.000Z
+      registryUrl: https://repo1.maven.org/maven2/
+      packaging: jar
+  slf4j:
+    artifact:
+      type: maven
+      name: org.slf4j:slf4j-api
+      version: 1.7.35
+      releaseTimestamp: 2022-01-25T00:00:00.000Z
+      registryUrl: https://repo1.maven.org/maven2/
+      packaging: jar

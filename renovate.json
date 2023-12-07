@@ -1,0 +1,18 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:recommended"],
+  "prHourlyLimit": 0,
+  "prConcurrentLimit": 0,
+  "rebaseWhen": "conflicted",
+  "fetchChangeLogs": "off",
+  "customManagers": [
+    {
+      "customType": "regex",
+      "fileMatch": ["(^|/)release\\.yaml$"],
+      "matchStrings": [
+        "artifact:\\n(?<indentation>[ ]+?)type: (?<datasource>[^\\s]*?)\\s*name: (?<depName>[^\\s]*?)\\s*version: (?<currentValue>[^\\s]*?)\\s*releaseTimestamp: (?:[^\\s]*?)\\s*registryUrl: (?<registryUrl>[^\\s]*?)\\s"
+      ],
+      "autoReplaceStringTemplate": "artifact\n{{{indentation}}}type: {{{datasource}}}\n{{{indentation}}}name: {{{depName}}}\n{{{indentation}}}version: {{{newValue}}}\n{{{indentation}}}releaseTimestamp: {{{releaseTimestamp}}}\n{{{indentation}}}registryUrl: {{{registryUrl}}}"
+    }
+  ]
+}
